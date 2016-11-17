@@ -15,6 +15,7 @@ module Books
       g.template_engine :haml
       g.stylesheets false
       g.javascripts false
+      g.factory_girl false
     end
   end
 end
