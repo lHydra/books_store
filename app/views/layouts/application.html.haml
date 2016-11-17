@@ -1,10 +1,36 @@
-!!!
-%html
+!!! 5
+%html(lang="en")
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Books
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title Books Store - it`s cool!
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
   %body
-    = yield
+    %nav.navbar.navbar-light.bg-faded
+      %a.navbar-brand{href: "#{root_path}"}
+        Books Store
+      %ul.nav.navbar-nav.float-xs-right
+        - if current_user
+          .navbar-text
+            = link_to "Log Out, #{current_user.email}", destroy_user_session_path, 
+                                                                                method: :delete,
+                                                                                data: {  confirm: 'Вы действительно хотите выйти?' }
+        - else 
+          %li.nav-item
+            %a.nav-link{href: "#{new_user_registration_path}"} Sign Up
+          %li.nav-item
+            %a.nav-link{href: "#{new_user_session_path}"} Log In
+    .container
+      .row
+        .col-lg-9
+          - if flash[:notice]
+            .alert.alert-success= flash[:notice]
+          - if flash[:alert]
+            .alert.alert-danger= flash[:alert]
+          = yield
