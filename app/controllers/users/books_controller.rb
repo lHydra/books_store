@@ -1,7 +1,8 @@
 module Users
   class BooksController < ApplicationController
+    before_action :authenticate_user!
+    before_action :set_user
     before_action :set_book, only: [:show, :edit, :update, :destroy, :download]
-    before_action :set_user, except: [:destroy]
 
     def index
       @books = @user.books.all.order('created_at DESC').page(params[:page]).per(6)
@@ -53,11 +54,11 @@ module Users
 
     private
       def set_book
-        @book = Book.find(params[:id])
+        @book = @user.books.find(params[:id])
       end
 
       def set_user
-        @user = User.find(params[:user_id])
+        @user = User.find(current_user.id)
       end
 
       def book_params
