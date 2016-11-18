@@ -4,7 +4,7 @@ module Users
     before_action :set_user, except: [:destroy]
 
     def index
-      @books = @user.books.all
+      @books = @user.books.all.order('created_at DESC').page(params[:page]).per(6)
     end
 
     def show

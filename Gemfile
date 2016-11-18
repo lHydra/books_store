@@ -14,6 +14,7 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'devise'
 gem 'paperclip', '~> 5.0.0'
 gem 'simple_form'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri
