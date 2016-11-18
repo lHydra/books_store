@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :user
+  has_many :coupons
 
   @types = ['application/pdf', 'application/epub+zip', 'plain/text']
   has_attached_file :image, styles: { medium: '500x500>', thumb: '300x300>' }

@@ -7,8 +7,7 @@
 %p= @book.description
 %p
   = link_to 'Download', download_book_path(@book), 'data-turbolinks': false, class: 'btn btn-info' if @book.document?
-  = link_to 'Coupons', '#', class: 'btn btn-warning'
-
+  = link_to 'Coupons', generate_coupon_user_book_path, class: 'btn btn-warning', remote: true
 = link_to 'Edit', edit_user_book_path(@user, @book)
 \|
 = link_to 'Back', user_books_path

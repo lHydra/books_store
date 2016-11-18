@@ -8,6 +8,11 @@ class BooksController < ApplicationController
   end
 
   def show
+    if @book.free? != true && @book.coupons.where(code: params[:coupon]).present? or @book.free?
+      render :show
+    else
+      redirect_to root_path, alert: 'Access Denied!'
+    end
   end
 
   def download

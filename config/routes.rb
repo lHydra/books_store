@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: :none do 
-    resources :books, controller: 'users/books'
+    resources :books, controller: 'users/books' do
+      member do
+        get :generate_coupon
+      end
+    end
   end
 
   resources :books, only: [:index, :show] do

@@ -6,4 +6,4 @@
 %h3 Description:
 %p= @book.description
 
-= link_to 'Download', download_book_path(@book), 'data-turbolinks': false, class: 'btn btn-info' if @book.document? && @book.free?
+= link_to 'Download', download_book_path(@book), 'data-turbolinks': false, class: 'btn btn-info' if @book.document?
