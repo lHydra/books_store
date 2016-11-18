@@ -2,7 +2,7 @@ module Users
   class BooksController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user
-    before_action :set_book, only: [:show, :edit, :update, :destroy, :download]
+    before_action :set_book, only: [:show, :edit, :update, :destroy, :download, :generate_coupon]
 
     def index
       @books = @user.books.all.order('created_at DESC').page(params[:page]).per(6)
@@ -49,6 +49,16 @@ module Users
       respond_to do |format|
         format.html { redirect_to user_books_path, notice: 'Book was successfully destroyed.' }
         format.json { head :no_content }
+      end
+    end
+
+    def generate_coupon
+      code = SecureRandom.hex[0..5]
+      @book.coupons.create!(code: code)
+      @url = url_for "localhost:3000/books/#{@book.id}?coupon=#{code}"
+      respond_to do |format|
+        format.html { render :show }
+        format.js
       end
     end
 
