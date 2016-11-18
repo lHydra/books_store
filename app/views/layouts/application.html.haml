@@ -18,7 +18,8 @@
       %ul.nav.navbar-nav.float-xs-right
         - if current_user
           .navbar-text
-            = link_to "Log Out, #{current_user.email}", destroy_user_session_path, 
+            Log Out,
+            = link_to " #{current_user.email}", destroy_user_session_path, 
                                                                                 method: :delete,
                                                                                 data: {  confirm: 'Вы действительно хотите выйти?' }
         - else 
@@ -28,7 +29,7 @@
             %a.nav-link{href: "#{new_user_session_path}"} Log In
     .container
       .row
-        .col-lg-9
+        .col-lg-12
           - if flash[:notice]
             .alert.alert-success= flash[:notice]
           - if flash[:alert]

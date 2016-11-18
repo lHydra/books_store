@@ -1,0 +1,9 @@
+= simple_form_for [@user, @book] do |f|
+  .actions
+    %p= f.input :author, readonly: true,
+                                    value: current_user.email,
+                                    placeholder: current_user.email
+    %p= f.input :title
+    %p= f.input :description
+    %p= f.input :image
+    %p= f.button :submit

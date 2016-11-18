@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :author
       t.string :title
       t.string :description
-      t.boolean :coupons
+      t.boolean :free
       t.integer :user_id
       t.timestamps
     end
