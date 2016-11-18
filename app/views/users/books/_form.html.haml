@@ -6,6 +6,7 @@
                                     input_html: { value: current_user.email }
     %p= f.input :title
     %p= f.input :description, as: :text, input_html: { rows: 5 }
+    %p= f.input :free, as: :boolean, checked_value: true, unchecked_value: false 
     - if @book.image.present?
       %p= image_tag @book.image.url(:thumb)
       %p= f.input :image, required: false

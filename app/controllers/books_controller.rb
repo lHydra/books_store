@@ -2,7 +2,9 @@ class BooksController < ApplicationController
   before_action :set_book, except: [:index]
 
   def index
-    @books = Book.all.order('created_at DESC').page(params[:page]).per(6)
+    @books = Book.where(free: true)
+                            .order('created_at DESC')
+                            .page(params[:page]).per(6)
   end
 
   def show
