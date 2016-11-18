@@ -1,0 +1,15 @@
+= simple_form_for [@user, @book] do |f|
+  .actions
+    %p=f.error_notification
+    %p= f.input :author, readonly: true,
+                                    placeholder: current_user.email,
+                                    input_html: { value: current_user.email }
+    %p= f.input :title
+    %p= f.input :description, as: :text, input_html: { rows: 5 }
+    - if @book.image.present?
+      %p= image_tag @book.image.url(:thumb)
+      %p= f.input :image, required: false
+    - else
+      %p= f.input :image
+    %p= f.input :document
+    %p= f.button :submit, class: 'btn btn-success'

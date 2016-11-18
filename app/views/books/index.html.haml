@@ -1,0 +1,15 @@
+%h1
+  %center Listing books
+- @books.each_slice(3) do |books_array|
+  .row
+    - books_array.each do |book|
+      .col-md-4.col-sm-4
+        .thumbnail
+          = image_tag book.image.url(:thumb)
+        .caption
+          = "author: #{book.author}"
+          %p= "title: #{book.title}"
+          %p= book.description
+          = link_to 'Show', book_path(book)
+  %br
+= paginate @books
