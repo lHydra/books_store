@@ -1,27 +1,23 @@
 module Users
   class BooksController < ApplicationController
-    before_action :set_book, only: [:show, :edit, :update, :destroy]
+    before_action :set_book, only: [:show, :edit, :update, :destroy, :download]
+    before_action :set_user, except: [:destroy]
 
     def index
-      @user = User.find(params[:user_id])
-      @books = Book.all
+      @books = @user.books.all
     end
 
     def show
-      @user = User.find(params[:user_id])
     end
 
     def new
-      @user = User.find(params[:user_id])
       @book = @user.books.build
     end
 
     def edit
-      @user = User.find(params[:user_id])
     end
 
     def create
-      @user = User.find(params[:user_id])
       @book = @user.books.new(book_params)
 
       respond_to do |format|
@@ -36,7 +32,6 @@ module Users
     end
 
     def update
-      @user = User.find(params[:user_id])
       respond_to do |format|
         if @book.update(book_params)
           format.html { redirect_to [@user, @book], notice: 'Book was successfully updated.' }
@@ -61,8 +56,12 @@ module Users
         @book = Book.find(params[:id])
       end
 
+      def set_user
+        @user = User.find(params[:user_id])
+      end
+
       def book_params
-        params.require(:book).permit(:image, :title, :author, :description, :coupons)
+        params.require(:book).permit(:image, :title, :author, :description, :free, :document)
       end
   end
 end
