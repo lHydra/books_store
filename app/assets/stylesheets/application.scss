@@ -21,3 +21,27 @@
 .alert {
   margin-top: 7px;
 }
+
+.modal-dialog {
+   position: absolute;
+   left: 40%;
+   top: 50%; 
+   margin-left: -150px;
+   margin-top: -150px;
+}
+
+.modal-content {
+  width: 600px;
+  height: 70px;
+}
+
+#code {
+  margin: 4px 0px 0px 65px;
+  width: 400px;
+}
+
+.my-btn {
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  margin: 0px 0px 4px 3px;
+}

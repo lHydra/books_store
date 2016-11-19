@@ -1,0 +1,10 @@
+.modal.fade.bs-example-modal-lg{"aria-labelledby" => "myLargeModalLabel", role: "dialog", tabindex:  "-1", id: "coupons"}
+  .modal-dialog.modal-lg{role: "document"}
+    .modal-content
+      %center COUPONS FOR FREE DOWNLOAD
+      = text_field_tag :code
+      = button_tag 'Copy', id: 'copyButton', class: 'btn btn-success btn-sm my-btn', 'data-clipboard-target': 'code'
+:javascript
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#copyButton"))
+  });
