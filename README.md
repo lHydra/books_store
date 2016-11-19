@@ -14,6 +14,12 @@ Then seed the database with command
 rails db:seed_fu
 ```
 
+Also you can run test with command
+
+```console
+bundle exec rspec spec
+```
+
 This create 2 users and 12 books, 6 - free and 6 - close
 
 User №1
