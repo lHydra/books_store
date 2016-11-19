@@ -16,6 +16,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'simple_form'
 gem 'kaminari'
 gem 'seed-fu', '~> 2.3'
+gem 'zeroclipboard-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
