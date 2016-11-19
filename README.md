@@ -16,18 +16,22 @@ rails db:seed_fu
 
 This create 2 users and 12 books, 6 - free and 6 - close
 
-User №1:
+User №1
 
 ```ruby
 email: 'first@mail.ru', password: '123123'
 ```
 
-User №2:
+User №2
 
 ```ruby
 email: 'second@mail.ru', password: '123123'
 ```
 
-3 coupons for books: **book 4** - **aaabbb*, **book 5** - **123456**, **book 12** - **free**
+3 coupons for books: book 4 - **aaabbb**, book 5 - **123456**, book 12 - **free**
 
-For more information see **app/db/fixtures/3_coupons.rb**
+For more information see
+
+```ruby
+app/db/fixtures/3_coupons.rb
+```
