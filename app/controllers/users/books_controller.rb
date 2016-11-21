@@ -20,36 +20,24 @@ module Users
 
     def create
       @book = @user.books.new(book_params)
-
-      respond_to do |format|
-        if @book.save
-          format.html { redirect_to [@user, @book], notice: 'Book was successfully created.' }
-          format.json { render :show, status: :created, location: @book }
-        else
-          format.html { render :new }
-          format.json { render json: @book.errors, status: :unprocessable_entity }
-        end
+      if @book.save
+        respond_with @user, @book
+      else
+        respond_with @user, @book
       end
     end
 
     def update
-      respond_to do |format|
-        if @book.update(book_params)
-          format.html { redirect_to [@user, @book], notice: 'Book was successfully updated.' }
-          format.json { render :show, status: :ok, location: @book }
-        else
-          format.html { render :edit }
-          format.json { render json: @book.errors, status: :unprocessable_entity }
-        end
+      if @book.update(book_params)
+        respond_with @user, @book
+      else
+        respond_with @user, @book
       end
     end
 
     def destroy
       @book.destroy
-      respond_to do |format|
-        format.html { redirect_to user_books_path, notice: 'Book was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      respond_with @user, @book
     end
 
     def generate_coupon

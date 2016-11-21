@@ -45,3 +45,9 @@
   border-radius: 0.3rem;
   margin: 0px 0px 4px 3px;
 }
+
+.help-block {
+  @extend .alert;
+  @extend .alert-danger;
+  padding: 0.2rem 1.25rem;
+}
