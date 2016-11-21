@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'seed-fu', '~> 2.3'
 gem 'zeroclipboard-rails'
+gem 'responders'
 
 group :development, :test do
   gem 'byebug', platform: :mri
