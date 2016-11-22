@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'seed-fu', '~> 2.3'
 gem 'zeroclipboard-rails'
+gem 'therubyracer', platforms: :ruby
 gem 'responders'
 gem 'whenever', :require => false
 
@@ -35,6 +36,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'foreman'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

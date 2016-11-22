@@ -1,0 +1,2 @@
+docker-psql: docker-compose -f config/psql.yml up
+web: bundle exec puma --port 3000 -C config/puma.rb config.ru
