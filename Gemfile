@@ -18,6 +18,8 @@ gem 'kaminari'
 gem 'seed-fu', '~> 2.3'
 gem 'zeroclipboard-rails'
 gem 'therubyracer', platforms: :ruby
+gem 'responders'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug', platform: :mri

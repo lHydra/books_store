@@ -91,6 +91,14 @@ Also you can run test with command
 bundle exec rspec spec
 ```
 
+## Seeds
+
+Then seed the database with command
+
+```console
+rails db:seed_fu
+```
+
 This create 2 users and 12 books, 6 - free and 6 - close
 
 User №1
@@ -111,4 +119,11 @@ For more information see
 
 ```ruby
 app/db/fixtures/3_coupons.rb
+```
+
+## Cron tasks
+
+Start whenever with command (delete every 3 minutes coupons that was created more than 5 minute ago)
+```console
+whenever --update-crontab --set environment=development
 ```
