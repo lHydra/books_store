@@ -51,3 +51,16 @@
   @extend .alert-danger;
   padding: 0.2rem 1.25rem;
 }
+
+body {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding-bottom: 15px;
+}
+
+html {
+  background-color: #CEC095;
+}
