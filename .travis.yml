@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.3.1
+services:
+  - docker
+before_install:
+  - psql -c 'create database books_test' -U postgres
+  - docker-compose -f config/psql.yml up
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake

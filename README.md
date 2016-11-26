@@ -1,5 +1,6 @@
 # Books Store
-
+[![Code Climate](https://codeclimate.com/github/lHydra/books_store/badges/gpa.svg)](https://codeclimate.com/github/lHydra/books_store)
+[![Build Status](https://travis-ci.org/lHydra/books_store.svg?branch=master)](https://travis-ci.org/lHydra/books_store)
 ## Steps to start this application:
 
 Go to the application directory
