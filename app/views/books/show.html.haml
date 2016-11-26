@@ -1,9 +1,12 @@
 = image_tag @book.image.url(:medium), class: 'image'
 %h3 Title: 
 %p= @book.title
+%hr
 %h3 Author: 
 %p= @book.author
+%hr
 %h3 Description:
-%p= @book.description
-
-= link_to 'Download', download_book_path(@book), 'data-turbolinks': false, class: 'btn btn-info' if @book.document?
+%p
+  = @book.description
+  %br
+  = link_to 'Download', download_book_path(@book), 'data-turbolinks': false, class: 'btn btn-info download' if @book.document?
