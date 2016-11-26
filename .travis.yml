@@ -7,6 +7,7 @@ before_install:
   - psql -c 'create database books_test' -U postgres
   - docker-compose -f config/psql.yml up &
 script:
+  - bundle exec rake db:create
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rake
